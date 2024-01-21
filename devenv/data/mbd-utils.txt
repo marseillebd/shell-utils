@@ -7,3 +7,5 @@ dotsync
 env-cabal
 technicolor
 autows
+shellcheck
+haxplay
