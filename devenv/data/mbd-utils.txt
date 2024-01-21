@@ -1,0 +1,9 @@
+shld
+devenv
+will
+skel
+gitstat
+dotsync
+env-cabal
+technicolor
+autows

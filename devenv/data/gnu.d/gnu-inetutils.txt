@@ -1,0 +1,5 @@
+ftp
+telnet
+rsh
+rlogin
+tftp

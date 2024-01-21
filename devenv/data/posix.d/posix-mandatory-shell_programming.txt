@@ -1,0 +1,14 @@
+command
+echo
+expr
+false
+getopts
+logger
+printf
+read
+sh
+sleep
+tee
+test
+xargs
+true

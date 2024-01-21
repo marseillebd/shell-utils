@@ -1,0 +1,16 @@
+apt
+dpkg
+aptitude
+apk
+pacman
+yum
+flatpack
+homebrew
+snap
+nix-build
+nix-shell
+nix-store
+nix-env
+nix
+pkgin
+pipx

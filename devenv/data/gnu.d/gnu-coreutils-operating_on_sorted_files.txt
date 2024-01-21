@@ -1,0 +1,6 @@
+sort
+shuf
+uniq
+comm
+ptx
+tsort

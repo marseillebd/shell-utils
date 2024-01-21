@@ -1,0 +1,14 @@
+gcc
+clang
+doxygen
+cc
+c99
+c89
+c11
+ld
+valgrind
+gdb
+lex
+yacc
+flex
+bison

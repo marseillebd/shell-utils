@@ -1,0 +1,8 @@
+link
+ln
+mkdir
+mkfifo
+mknod
+readlink
+rmdir
+unlink

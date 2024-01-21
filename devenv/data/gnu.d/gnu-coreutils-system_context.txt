@@ -1,0 +1,7 @@
+date
+arch
+nproc
+uname
+hostname
+hostid
+uptime

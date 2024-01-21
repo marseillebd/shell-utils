@@ -1,0 +1,9 @@
+at
+batch
+kill
+nice
+nohup
+ps
+renice
+time
+wait

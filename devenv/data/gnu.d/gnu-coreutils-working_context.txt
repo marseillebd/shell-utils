@@ -1,0 +1,4 @@
+pwd
+stty
+printenv
+tty

@@ -1,0 +1,9 @@
+cpio
+grep
+groff
+grub
+gzip
+readline
+screen
+tar
+time

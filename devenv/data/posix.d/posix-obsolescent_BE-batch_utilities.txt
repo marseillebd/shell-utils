@@ -1,0 +1,11 @@
+qalter
+qdel
+qhold
+qmove
+qmsg
+qrerun
+qrls
+qselect
+qsig
+qstat
+qsub

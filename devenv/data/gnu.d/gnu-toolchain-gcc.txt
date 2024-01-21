@@ -1,0 +1,5 @@
+gcc
+gcov
+gcov-tool
+gcov-dump
+lto-dump

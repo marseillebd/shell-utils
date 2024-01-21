@@ -1,0 +1,6 @@
+cp
+dd
+install
+mv
+rm
+shred

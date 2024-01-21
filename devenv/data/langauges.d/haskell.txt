@@ -1,0 +1,9 @@
+ghcup
+cabal
+ghc
+ghci
+runghc
+stack
+haskell-language-server
+haskell-language-server-wrapper
+hie-bios

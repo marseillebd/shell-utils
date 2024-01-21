@@ -1,0 +1,6 @@
+sh
+dash
+bash
+zsh
+csh
+rc

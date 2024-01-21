@@ -1,0 +1,6 @@
+id
+logname
+whoami
+groups
+users
+who
