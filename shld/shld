@@ -1,8 +1,7 @@
 #!/bin/bash
-set -e
-
 # SPDX-FileCopyrightText: © 2024 Marseille Bouchard <marseillebd@proton.me>
 # SPDX-License-Identifier: GPL-3.0-or-later
+set -e
 
 usage() {
   echo >&2 "$0 -r <requirements file> <source script>"
@@ -17,7 +16,7 @@ runCompiler() (
 
   {
     # TODO un-literate the code
-    cat "$infile"
+    cat "$srcfile"
 
     case "$reqfile" in
       *.txt) true ;;
@@ -29,7 +28,7 @@ runCompiler() (
       echo ""
       echo "# shld: INCLUDE '$req'"
       echo "# SPDX-SnippetBegin"
-      dispatchReq "$req"
+      dispatchReq "$reqfile" "$req"
       echo "# SPDX-SnippetEnd"
       echo '# shld: END INCLUDE'
       # TODO we might even want to check for transitive dependencies
@@ -46,9 +45,10 @@ runCompiler() (
 )
 
 dispatchReq() (
-  req="$1"
+  reqfile="$1"
+  req="$2"
   if [[ "$req" =~ ^local[[:space:]]+(.*)$ ]]; then
-    localld "${BASH_REMATCH[1]}"
+    localld "$reqfile" "${BASH_REMATCH[1]}"
   elif [[ "$req" =~ ^git[[:space:]]([^[:space:]]*)([[:space:]](.*))?$ ]]; then
     url="${BASH_REMATCH[1]}"
     args="${BASH_REMATCH[2]}"
@@ -72,7 +72,8 @@ dispatchReq() (
 )
 
 localld() (
-  req="${BASH_REMATCH[1]}"
+  reqfile="$1"
+  req="$2"
   case "$req" in
     # name starts with slash is absolute
     /*) cat "$req" ;;
@@ -95,9 +96,9 @@ gitld() (
 
 main() (
   # parse cli arguments
-  reqfile=''
-  infiles=()
-  outfile=''
+  local reqfile=''
+  local srcfiles=()
+  local outfile=''
   while [[ "$#" -gt 0 ]]; do
     case "$1" in
       --help) usage; exit 0 ;; # TODO print more detailed help than the plain usage
@@ -105,21 +106,21 @@ main() (
       -r) shift; reqfile=$1 ;;
       # TODO an option that builds and runs (for testing workflow)
       -*) die "unrecognized option '$1'" ;;
-      *) infiles+=("$1") ;;
+      *) srcfiles+=("$1") ;;
     esac
     shift
   done
 
   # ensure we have all required arguments
   if [[ -z "$reqfile" ]]; then die "requirements file is required '-r <file>'"; fi
-  case "${#infiles[@]}" in
-    1) infile="${infiles[0]}" ;;
+  case "${#srcfiles[@]}" in
+    1) srcfile="${srcfiles[0]}" ;;
     0) die "source script required" ;;
     *) die "at most one source script allowed" ;;
   esac
   if [[ -z "$outfile" ]]; then die "output filename is required '-o <file>'"; fi
 
-  runCompiler "$reqfile" "$infile" "$outfile"
+  runCompiler "$reqfile" "$srcfile" "$outfile"
 )
 
 die() {
@@ -130,4 +131,5 @@ die() {
 warn() {
   echo >&2 "$@"
 }
+
 main "$@"

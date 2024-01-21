@@ -28,6 +28,7 @@ This script plans to:
       - [x] filepath
       - [ ] git
       - [ ] `SHLD_PATH`
+      - [ ] url
   - your code should only define functions
   - [x] `cat` libraries into the bundled script
   - [x] call your `main` function
