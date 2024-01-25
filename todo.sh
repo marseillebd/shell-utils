@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 
-die() {
+std::die() {
   if [ "$#" -gt 0 ]; then echo >&2 "$@"; fi
   exit 1
 }

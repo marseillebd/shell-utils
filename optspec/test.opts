@@ -1,0 +1,29 @@
+# regular comments start with just a single hash
+
+> documentation is given with bird feet
+> this top one is documentation for the whole command
+>   adfs
+
+-t --test
+> this is a flag, so it gets set to `1`
+-I --include-dir <DIR=isdir>
+> this one takes an argument; you can tell from the angle brackets
+> the part before the equals is used in documentation
+> the part after is a function that will update the argument, it (with the equals) is optional
+> it calls the function (prefixed with `=`) with `${1,2} = <next positional arg> <old value>` and then sets the variable under definition to whatever is printed on stdout
+== command ==
+> you can stick whatever you want in here
+> if the name `command` is detected in the argument list, the spec for the rest of the args is replaced with whatever is in here
+=== nested-command ===
+> you can also have sub-sub-commands
+> this documentation applies to the command
+=== end nested-command ===
+== end command ==
+== +RTS ===
+> and you can also have "parenthesized" sections of arguments with a name that starts with `+`
+== -RTS ===
+# you can include other parts of the spec by name with a percent-include 
+%include nested-command
+== SECTION NAME
+> if there's no closing equals, then we've got a documentation section
+> these are put in after all the options
