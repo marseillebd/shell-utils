@@ -4,10 +4,12 @@ FIXME Actually, it looks like I have way too much stuff in here; I'll need to sp
 - [x] [shld](./shld/README.md):
     Allows linking shell libraries together, and has some very limited compilation ability.
     - [ ] TODO extract documentation from a shld library
+- [ ] argspec (as a library)
 - [ ] TODO terminal color library
 - [ ] TODO pull in exectime, or a better timeout program
 - [ ] TODO pull in gitstat
 - [ ] TODO organize function in `todo.sh`
+- [ ] semver shell lib
 
 ## Gadgets
 FIXME These should be moved into a separate repository, I think.

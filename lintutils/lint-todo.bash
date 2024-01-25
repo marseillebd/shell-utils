@@ -8,9 +8,10 @@ main() (
   flags=('--color=auto')
   flags+=('--exclude-dir=.git')
 
-  grep -r "${flags[@]}" '\bTODO\b' . || true
-  grep -r "${flags[@]}" '\bFIX\(ME\)?\b' . || true
-  grep -r "${flags[@]}" '\bDEL\(ETE\)\?\(ME\)\?\b' . || true
+  grep -Er "${flags[@]}" '\bTODO\b' . || true
+  grep -Er "${flags[@]}" '\bFIX(ME)?\b' . || true
+  grep -Er "${flags[@]}" '\bDEL(ETE)?(ME)?\b' . || true
+  grep -Er "${flags[@]}" '\bDEBUG\b' . || true
 )
 
 main "$@"
